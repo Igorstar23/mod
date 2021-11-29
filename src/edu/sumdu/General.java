@@ -5,7 +5,20 @@ public class General extends Human{
        private Commander[] commanders;
        public static final int DEF_NUM_COM = 2;
 
+       public General() {
+              super();
+       }
+       public General(String name) {
+              this();
+              this.setName(name);
+       }
 
+       public General(String name, int countStars, Commander[] commanders) {
+              this(name);
+              this.countStars = countStars;
+              this.commanders = commanders;
+              for (var c : commanders) c.setMyGen(this);
+       }
 
        @Override
        public String canWar() { return super.getStatus(); }
@@ -13,7 +26,7 @@ public class General extends Human{
        public void doReport() {
               System.out.print("General " + this.getName() + " ");
 
-                     System.out.println(this.getName() + "I have not Boss and I ");
+              System.out.println("I have not Boss and ");
 
 
               try {

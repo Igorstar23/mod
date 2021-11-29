@@ -6,12 +6,16 @@ class Soldier extends Human{
        private Commander myCom;
 
        public Soldier() {
+              super();
               this.rang = "privet";
               this.weaponName = "AK-74";
        }
-       public Soldier(String rang, String weaponName, Commander myCom) {
-              this.rang = rang;
-              this.weaponName = weaponName;
+       public Soldier(String name) {
+               this();
+              this.setName(name);
+       }
+       public Soldier (String name, Commander myCom) {
+              this(name);
               this.myCom = myCom;
        }
 
@@ -27,10 +31,10 @@ class Soldier extends Human{
 
 
                if (this.myCom == null) {
-                   System.out.println(this.getName() + "I have not commanders and I ");
+                   System.out.println("I have not commanders and I ");
                } else {
 
-                   System.out.println(this.getName() + "I have commander " + this.myCom.getName());
+                   System.out.println("I have commander " + this.myCom.getName());
                }
 
 

@@ -1,12 +1,23 @@
 package edu.sumdu;
 
 public class Commander extends Human{
-       private int numLegion;
+       private int numLegion = 777;
        private Soldier[] soldiers;
        private General myGen;
        public static final int DEF_NUM_SDR = 3;
 
-
+       public Commander() {
+              super();
+       }
+       public Commander(Soldier[] soldiers) {
+              this();
+              this.soldiers = soldiers;
+              for( var s : soldiers) s.setMyCom(this);
+       }
+       public Commander(String name, Soldier[] soldiers) {
+              this(soldiers);
+              this.setName(name);
+       }
 
        @Override
        public String canWar(){
@@ -19,10 +30,10 @@ public class Commander extends Human{
 
 
               if (this.myGen == null) {
-                     System.out.println(this.getName() + "I have not generals and I ");
+                     System.out.println("I have not generals and I ");
               } else {
 
-                     System.out.println(this.getName() + "I have general " + this.myGen.getName());
+                     System.out.println("I have general " + this.myGen.getName());
               }
 
 
